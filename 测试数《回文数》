@@ -1,0 +1,28 @@
+//任意输入一个数，判断它是不是回文数。是输出YES，不是输出NO。回文数（例：121，123321）
+#include<stdio.h>
+#include<stdlib.h>
+int main(void)
+{
+	int x,i=0,j,y,k,a[10];
+	printf("请输入要判断的数：");
+	scanf("%d",&x);
+	while (x)
+	{
+		y = x % 10;
+		a[i++] = y;
+		x /= 10;
+	}
+	for (j = 0; j < i/2; j++)
+	{
+		
+		if (a[j] != a[i - j - 1])
+		{
+            printf("NO");
+			break;
+		}
+		if (j == i/2-1 )
+			printf("YES");	
+	}
+	system("pause");
+	return 0;
+}
