@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(void)
+{
+	int i = 0, k = 0, j = 0,n=0;
+	while (i < 30)
+	{
+		while (j < 30 )
+		{
+			while ( k < 30)
+			{
+				if (30 == i + j + k)
+				{
+					if (150 ==3 * i + 2 * j + k  )
+					{
+						n++;
+						printf("方案%d：男人:%d\t女人：%d\t孩子：%d", n, i, j, k);
+					}
+				}
+			k++;
+		    }
+		j++;
+	    }
+	i++;
+	}
+	system("pause");
+	return 0;
+}
