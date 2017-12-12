@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int fac(int n)
+{
+	int t;
+	if (n == 1 || n == 0)
+		return 1;
+	else
+	{
+		t = n*fac(n - 1);
+		return t;
+	}
+	
+}
+int main()
+{
+	int n;
+	scanf("%d",&n);
+	if (n < 0)
+		printf("你输入错误！！\n");
+	else
+	{
+		printf("%d的阶乘值为：%d\n", n, fac(n));
+	}
+
+	system("pause");
+	return 0;
+}
