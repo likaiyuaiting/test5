@@ -1,0 +1,11 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+int main(void)
+{
+	char str[] = "abcd";
+	if (&str[0] - &str[1] < 0)  printf("小端");
+	else if (&str[0] - &str[1] > 0)  printf("大端");
+	system("pause");
+	return 0;
+}
