@@ -1,0 +1,90 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#if 0
+void fz(char str[], int left, int right)
+{
+	while (left < right)
+	{
+		char t = str[left];
+		str[left] = str[right];
+		str[right] = t;
+		left++;
+		right--;
+	}
+}
+int main(void)
+{
+	char str[] = "ABCDEF";
+	int n;
+	printf("%s\n", str);
+	//右旋转
+	printf("请输入要右旋转的次数：");
+	scanf("%d",&n);
+	n = n % (strlen(str) - 1);
+	fz(str, 0, strlen(str)-1);
+	fz(str, 0, n-1);
+	fz(str, n, strlen(str) - 1);
+	printf("%s\n",str);
+	//左旋转
+	printf("\n请输入要左旋转的次数：");
+	scanf("%d", &n);
+	n = n % (strlen(str) - 1);
+	fz(str, 0, strlen(str) - 1);
+	fz(str, 0, strlen(str) - 1-n-1);
+	fz(str, strlen(str) - 1 - n, strlen(str) - 1);
+	printf("%s\n", str);
+	system("pause");
+	return 0;
+}
+#endif
+
+
+#if 1
+void fz(char str[], int left, int right)
+{
+	while (left < right)
+	{
+		char t = str[left];
+		str[left] = str[right];
+		str[right] = t;
+		left++;
+		right--;
+	}
+}
+int main(void)
+{
+	char str1[] = "ABCDEF", str2[] = "FABCDE",str3[7];
+	int i, j;
+	for (i = 0; i < strlen(str1);i++)
+	for (j = 0; j < strlen(str2);j++)
+	if (str1[i] == str2[j])
+		break;
+   //保存一份str2[]
+	strcpy(str3,str2);
+	//将字符串右旋转，比较是否原串相等
+	fz(str3, 0, strlen(str3) - 1);
+	fz(str3, 0, j - 1);
+	fz(str3, j, strlen(str3) - 1);
+	if (strcmp(str1, str3) == 0)
+	{
+		printf("可以通过旋转得到\n");
+		goto loop;
+	}
+	//将字符串左旋转，比较是否原串相等
+	fz(str2, 0, strlen(str2) - 1);
+	fz(str2, 0, strlen(str2) - 1 - j - 1);
+	fz(str2, strlen(str2) - 1 - j, strlen(str2) - 1);
+	if (strcmp(str1, str2) == 0)
+	{
+		printf("可以通过旋转得到\n");
+		goto loop;
+	}
+	printf("不可以通过旋转得到\n");
+
+loop:	
+	system("pause");
+	return 0;
+}
+
+#endif
